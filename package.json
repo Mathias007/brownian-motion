@@ -1,0 +1,31 @@
+{
+  "name": "ruchy-browna-projekt",
+  "version": "1.0.0",
+  "description": "Simulation of Brownian Motion in web-dev technologies using JavaScript.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mathias007/brownian-motion.git"
+  },
+  "keywords": [
+    "brownian",
+    "motion",
+    "physics",
+    "simulation",
+    "js",
+    "javascript",
+    "webdev"
+  ],
+  "author": "Mateusz Mathias Stawowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mathias007/brownian-motion/issues"
+  },
+  "homepage": "https://github.com/Mathias007/brownian-motion#readme",
+  "dependencies": {
+    "chart.js": "^4.1.2"
+  }
+}
