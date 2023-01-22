@@ -10,7 +10,13 @@
     <body>
         <button id="export-btn" class="export-button">Export to file</button>
 
-        <canvas id="chart"></canvas>
+        <div id="chart-container">
+            <canvas id="chart"></canvas>
+
+            <button id="toggle-tables-btn" class="toggle-button">
+                Show/Hide tables
+            </button>
+        </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>

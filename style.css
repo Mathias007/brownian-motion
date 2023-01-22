@@ -39,7 +39,8 @@ th {
 }
 
 /* Zmiana wyglądu przycisku */
-.export-button {
+.export-button,
+.toggle-button {
     padding: 12px 20px;
     font-size: 18px;
     font-weight: bold;
@@ -52,7 +53,22 @@ th {
 }
 
 /* Efekt przy najechaniu myszką */
-.export-button:hover {
+.export-button:hover,
+.toggle-button:hover {
     background-color: #555;
     transition: background-color 0.2s ease;
+}
+
+#chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.results-table {
+    display: inline-block;
+}
+
+.results-table.hidden {
+    display: none;
 }

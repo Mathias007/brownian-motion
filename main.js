@@ -18,7 +18,7 @@ function brownianMotion(initialPosition) {
 const series = [];
 for (let j = 0; j < 10; j++) {
     const table = document.createElement("table");
-    table.classList.add("results-table");
+    table.classList.add("results-table", "hidden");
     const header = table.createTHead();
     const row = header.insertRow();
     const iterationCell = row.insertCell();
@@ -105,4 +105,13 @@ exportBtn.addEventListener("click", () => {
 
     const fileName = "results.xlsx";
     XLSX.writeFile(wb, fileName);
+});
+
+// Dodanie event listenera na przycisk
+const toggleBtn = document.getElementById("toggle-tables-btn");
+toggleBtn.addEventListener("click", () => {
+    const tables = document.querySelectorAll(".results-table");
+    tables.forEach((table) => {
+        table.classList.toggle("hidden");
+    });
 });
