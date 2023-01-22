@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brownian Motion</title>
-</head>
-<body>
-    <canvas id="chart"></canvas>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="main.js" type="module"></script>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Brownian Motion</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <button id="export-btn" class="export-button">Export to file</button>
+
+        <canvas id="chart"></canvas>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/file-saver@2.0.2/dist/FileSaver.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="main.js" type="module"></script>
+    </body>
 </html>

@@ -4,6 +4,7 @@
   "description": "Simulation of Brownian Motion in web-dev technologies using JavaScript.",
   "main": "main.js",
   "scripts": {
+    "start": "main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/Mathias007/brownian-motion#readme",
   "dependencies": {
-    "chart.js": "^4.1.2"
+    "chart.js": "^4.1.2",
+    "xlsx": "^0.18.5"
   }
 }

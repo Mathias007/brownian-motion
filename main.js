@@ -1,3 +1,5 @@
+const exportBtn = document.getElementById("export-btn");
+
 // Import biblioteki do generowania liczb losowych
 const random = Math.random;
 
@@ -15,6 +17,16 @@ function brownianMotion(initialPosition) {
 // Symulacja ruchów Browna: generowanie 10 serii danych po 1000 prób
 const series = [];
 for (let j = 0; j < 10; j++) {
+    const table = document.createElement("table");
+    table.classList.add("results-table");
+    const header = table.createTHead();
+    const row = header.insertRow();
+    const iterationCell = row.insertCell();
+    iterationCell.innerHTML = "Iteration";
+    const positionCell = row.insertCell();
+    positionCell.innerHTML = "Position";
+    document.body.appendChild(table);
+
     let previousPosition = 0;
     let position = 0;
 
@@ -23,6 +35,13 @@ for (let j = 0; j < 10; j++) {
         previousPosition = position;
         position =
             previousPosition + Math.sqrt(2 * D * deltaT) * (random() - 0.5);
+
+        const row = table.insertRow();
+        const iterationCell = row.insertCell();
+        const positionCell = row.insertCell();
+        iterationCell.innerHTML = i;
+        positionCell.innerHTML = position;
+
         positions.push(position);
     }
     series.push(positions);
@@ -70,12 +89,20 @@ const chart = new Chart(ctx, {
     },
 });
 
-// TODO: zapisywanie i odczyt danych z plików
-// import { writeFileSync, readFileSync } from "fs";
+exportBtn.addEventListener("click", () => {
+    const wb = XLSX.utils.book_new();
 
-// // Zapis danych do pliku
-// writeFileSync("positions.txt", positions.join("\n"));
+    for (let i = 0; i < series.length; i++) {
+        let serie = series[i];
+        let data = [];
+        data.push(["Iteration", "Position"]);
+        for (let j = 0; j < serie.length; j++) {
+            data.push([j, serie[j]]);
+        }
+        let ws = XLSX.utils.aoa_to_sheet(data);
+        XLSX.utils.book_append_sheet(wb, ws, `Serie ${i + 1}`);
+    }
 
-// // Odczyt danych z pliku
-// const data = readFileSync("positions.txt").toString();
-// const positions = data.split("\n").map(Number);
+    const fileName = "results.xlsx";
+    XLSX.writeFile(wb, fileName);
+});
